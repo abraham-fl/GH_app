@@ -11,9 +11,10 @@
     {% for character in characters %}
     <div class="content-section">
       <div class="media">
-        <img class="rounded-circle character-img" src="{{ character.character_image }}">
+        <img class="rounded-circle img-responsive character-img" src="static/profile_pics/{{ character.character_image }}">
         <div class="media-body">
-          <div> {{ character.given_name}} </div>
+          <a class="character-name" href="{{ url_for('character', char_id=character.id) }}"> {{ character.given_name }} </a>
+          <p> Level {{ character.lvl }} {{ character.classname }}<p>
         </div>
       </div>
     </div>

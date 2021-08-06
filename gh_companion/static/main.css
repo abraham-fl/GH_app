@@ -29,7 +29,7 @@ body {
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
   
   .article-title {
@@ -73,6 +73,16 @@ body {
     width: 125px;
     margin-right: 20px;
     margin-bottom: 16px;
+  }
+
+  .character-img {
+    height: 65px;
+    width: 65px;
+    margin-right: 15px;
+  }
+
+  .character-name {
+    font-size: 1.5rem;
   }
   
   .account-heading {

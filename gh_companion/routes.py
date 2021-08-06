@@ -50,3 +50,9 @@ def account():
     image_file = url_for("static", filename=f"profile_pics/{current_user.image_file}")
     characters = Character.query.all()
     return render_template("account.html", title="Account", image_file=image_file, characters=characters) #parameter for template
+
+@app.route("/character/<int:char_id>")
+@login_required
+def character(char_id):
+    character = Character.query.get_or_404(char_id)
+    return render_template("character.html", title="Character Sheet", character=character)
