@@ -2,10 +2,21 @@
 {% block content %}
 <div class="content-section">
     <div class="media">
-      <img class="rounded-circle account-img" src="userimage.jpg">
+      <img class="rounded-circle account-img" src="{{ image_file }}">
       <div class="media-body">
         <h2 class="account-heading">{{ current_user.username }}</h2>
       </div>
     </div>
     <!-- FORM HERE -->
-  </div>{% endblock content %}
+    {% for character in characters %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle character-img" src="{{ character.character_image }}">
+        <div class="media-body">
+          <div> {{ character.given_name}} </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock content %}
