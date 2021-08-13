@@ -13,7 +13,7 @@
       <div class="media">
         <img class="rounded-circle img-responsive character-img" src="{{ url_for('static', filename='profile_pics/' + character.character_image) }}">
         <div class="media-body">
-          <a class="character-name" href="{{ url_for('character', char_id=character.id) }}"> {{ character.given_name }} </a>
+          <a class="character-name" href="{{ url_for('characters.character', char_id=character.id) }}"> {{ character.given_name }} </a>
           <p> Level {{ character.lvl }} {{ character.classname }}<p>
         </div>
       </div>

@@ -3,13 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from gh_companion.config import Config
-app = Flask(__name__)
 
-
-db = SQLAlchemy(app)
-bcrypt = Bcrypt(app)
-login_manager = LoginManager(app)
-login_manager.login_view = "login" #route die aufgerufen wird, wenn ein nicht eingeloggter User versucht, eine nicht erlaubte Seite zu öffnen
+#Extensions
+db = SQLAlchemy()
+bcrypt = Bcrypt()
+login_manager = LoginManager()
+login_manager.login_view = "users.login" #route die aufgerufen wird, wenn ein nicht eingeloggter User versucht, eine nicht erlaubte Seite zu öffnen
 login_manager.login_message_category = "info" #"info" == bootstrap info class
 
 def create_app(config_class = Config):
@@ -20,7 +19,13 @@ def create_app(config_class = Config):
     bcrypt.init_app(app)
     login_manager.init_app(app)
 
-    from gh_companion import routes
-    
+    from gh_companion.users.routes import users 
+    from gh_companion.characters.routes import characters 
+    from gh_companion.main.routes import main 
+
+    app.register_blueprint(users)
+    app.register_blueprint(characters)
+    app.register_blueprint(main)
+
     return app
 
